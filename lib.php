@@ -23,7 +23,6 @@
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-defined('MOODLE_INTERNAL') || die();
 
 /**
  *
@@ -129,15 +128,12 @@ function assignsubmission_notes_comment_display($gradereviews, $options) {
     if ($assignment->get_instance()->id != $submission->assignment) {
         throw new comment_exception('invalidcontext');
     }
-   
+
     $gradereviews = array();
     $testreview = new stdClass();
     $testreview->id = 1;
     $testreview->content = '<div class="no-overflow"><div class="text_to_html">Testing is go</div></div>';
     $gradereviews[] = $testreview;
-
-    error_log(print_r($gradereviews, true));
-
 
     return $gradereviews;
 }
@@ -160,4 +156,3 @@ function assignsubmission_notes_comment_add(stdClass $gradereview, stdClass $par
         $gradereview->commentarea = 'submission_notes';
     }
 }
-

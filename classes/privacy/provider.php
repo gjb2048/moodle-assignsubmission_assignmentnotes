@@ -25,8 +25,6 @@
 
 namespace assignsubmission_notes\privacy;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Notes does not store any user data.
  *

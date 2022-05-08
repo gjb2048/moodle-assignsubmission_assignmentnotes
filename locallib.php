@@ -24,10 +24,11 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
- defined('MOODLE_INTERNAL') || die();
+defined('MOODLE_INTERNAL') || die();
 
- require_once($CFG->dirroot . '/comment/lib.php');
- require_once($CFG->dirroot . '/mod/assign/submissionplugin.php');
+require_once($CFG->dirroot.'/comment/lib.php');
+require_once($CFG->dirroot.'/mod/assign/submissionplugin.php');
+require_once($CFG->dirroot.'/user/lib.php');
 
 /**
  * Library class for notes submission plugin extending submission plugin base class
@@ -54,27 +55,17 @@ class assign_submission_notes extends assign_submission_plugin {
      *                             set to true so they can be shown in a separate page
      * @return string
      */
-    public function view_summary(stdClass $submission, & $showviewlink) {
-        return '<div class="no-overflow"><div class="text_to_html">This is a test</div></div>';
+    public function view_summary(stdClass $submission, &$showviewlink) {
         // Never show a link to view full submission.
         $showviewlink = false;
-        // Need to used this init() otherwise it does not have the javascript includes.
-        comment::init();
 
-        $options = new stdClass();
-        $options->area    = 'submission_gradereviews';
-        $options->course    = $this->assignment->get_course();
-        $options->context = $this->assignment->get_context();
-        $options->itemid  = $submission->id;
-        $options->component = 'assignsubmission_gradereviews';
-        $options->showcount = true;
-        $options->displaycancel = true;
-        $options->linktext = get_string('commentlinktext', 'assignsubmission_gradereviews');
-
-        $gradereview = new comment($options);
-        $gradereview->set_view_permission(true);
-
-        $o = $this->assignment->get_renderer()->container($gradereview->output(true), 'commentscontainer');
+        list ($course, $cm) = get_course_and_cm_from_instance($submission->assignment, 'assign');
+        //$submission->userid
+        $theuser = \core_user::get_user($submission->userid);
+        $ud = user_get_user_details($theuser, $course);
+        $o = '<div class="no-overflow"><div class="text_to_html">This is a test '.print_r($submission, true).' - '.$course->id.' - '.print_r($ud, true).'</div></div>';
+        
+        //$o = $this->assignment->get_renderer()->container($gradereview->output(true), 'commentscontainer');
         return $o;
     }
 
