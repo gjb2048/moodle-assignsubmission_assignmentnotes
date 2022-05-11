@@ -84,7 +84,8 @@ class assign_submission_notes extends assign_submission_plugin {
                     $templatecontext->note = $searcharray['submission_note']['name'];
                     if (!empty($searcharray['submission_note_details']['value'])) {
                         $templatecontext->notedetails = $searcharray['submission_note_details']['value'];
-                        $templatecontext->notedetailssummary = mb_strimwidth($templatecontext->notedetails, 0, 200, "", 'utf-8');
+                        $notesummary = format_string($templatecontext->notedetails);
+                        $templatecontext->notedetailssummary = mb_strimwidth($notesummary, 0, 200, "", 'utf-8');
                     }
                 }
                 $o = $this->assignment->get_renderer()->render_from_template('assignsubmission_notes/note', $templatecontext);
@@ -92,9 +93,7 @@ class assign_submission_notes extends assign_submission_plugin {
         } else {
             $o = '-';
         }
-        //$o = '<div class="no-overflow"><div class="text_to_html">This is a test '.print_r($submission, true).' - '.$course->id.' - '.print_r($userdetails, true).'</div></div>';
-        
-        //$o = $this->assignment->get_renderer()->container($gradereview->output(true), 'commentscontainer');
+
         return $o;
     }
 
