@@ -35,12 +35,12 @@
             {{note}}
         </span>
         {{#js}}
-        require(['jquery', 'core/modal_factory', 'core/modal_events', 'core/templates'],
-            function($, ModalFactory, ModalEvents, Templates) {
+        require(['jquery', 'core/modal_factory'],
+            function($, ModalFactory) {
   
             var trigger = $('#note-modal-{{uniqid}}');
             ModalFactory.create({
-                type: ModalFactory.types.CANCEL,
+                type: ModalFactory.types.ALERT,
                 title: '{{note}}',
                 body: '{{{notedetails}}}',
             }, trigger);
