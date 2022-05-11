@@ -56,14 +56,43 @@ class assign_submission_notes extends assign_submission_plugin {
      * @return string
      */
     public function view_summary(stdClass $submission, &$showviewlink) {
+        try {
+            throw new \Exception();
+        } catch(\Exception $e) {
+            error_log('notes view_summary - '.$e->getTraceAsString());
+        }
+
         // Never show a link to view full submission.
         $showviewlink = false;
 
         list ($course, $cm) = get_course_and_cm_from_instance($submission->assignment, 'assign');
         //$submission->userid
         $theuser = \core_user::get_user($submission->userid);
-        $ud = user_get_user_details($theuser, $course);
-        $o = '<div class="no-overflow"><div class="text_to_html">This is a test '.print_r($submission, true).' - '.$course->id.' - '.print_r($ud, true).'</div></div>';
+        $userdetails = user_get_user_details($theuser, $course);
+
+        if (!empty($userdetails['customfields'])) {
+            $searcharray = array();
+            foreach ($userdetails['customfields'] as $cfield) {
+                $searcharray[$cfield['shortname']] = $cfield;
+            }
+
+            if (array_key_exists('submission_note', $searcharray)) {
+                $templatecontext = new stdClass;
+                if (empty($searcharray['submission_note']['value'])) {
+                    $templatecontext->note = false;
+                } else {
+                    $templatecontext->note = $searcharray['submission_note']['name'];
+                    if (!empty($searcharray['submission_note_details']['value'])) {
+                        $templatecontext->notedetails = $searcharray['submission_note_details']['value'];
+                        $templatecontext->notedetailssummary = mb_strimwidth($templatecontext->notedetails, 0, 200, "", 'utf-8');
+                    }
+                }
+                $o = $this->assignment->get_renderer()->render_from_template('assignsubmission_notes/note', $templatecontext);
+            }
+        } else {
+            $o = '-';
+        }
+        //$o = '<div class="no-overflow"><div class="text_to_html">This is a test '.print_r($submission, true).' - '.$course->id.' - '.print_r($userdetails, true).'</div></div>';
         
         //$o = $this->assignment->get_renderer()->container($gradereview->output(true), 'commentscontainer');
         return $o;
@@ -133,7 +162,7 @@ class assign_submission_notes extends assign_submission_plugin {
     }
 
     /**
-     * The submission gradereviews plugin has no submission component so should not be counted
+     * The submission notes plugin has no submission component so should not be counted
      * when determining whether to show the edit submission link.
      * @return boolean
      */
@@ -147,14 +176,7 @@ class assign_submission_notes extends assign_submission_plugin {
      * @return bool
      */
     public function is_enabled() {
-        global $COURSE, $USER;
-
-        if (has_capability('assign/submission:canreviewgrade', context_user::instance($USER->id))
-        || has_capability('assign/submission:canreviewgrade', context_course::instance($COURSE->id))) {
-            return true;
-        }
-
-        return false;
+        return true;
     }
 
     /**
