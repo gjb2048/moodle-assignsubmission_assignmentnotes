@@ -31,13 +31,13 @@
         {{#str}} nonote, assignsubmission_notes {{/str}}
     {{/note}}
     {{#note}}
-        <span id="note-modal-{{uniqid}}" type="button" title="{{notedetailssummary}}">
+        <span id="note-modal-{{uniqid}}" role="button" title="{{notedetailssummary}}">
             {{note}}
         </span>
         {{#js}}
         require(['jquery', 'core/modal_factory'],
             function($, ModalFactory) {
-  
+
             var trigger = $('#note-modal-{{uniqid}}');
             ModalFactory.create({
                 type: ModalFactory.types.ALERT,

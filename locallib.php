@@ -56,17 +56,10 @@ class assign_submission_notes extends assign_submission_plugin {
      * @return string
      */
     public function view_summary(stdClass $submission, &$showviewlink) {
-        try {
-            throw new \Exception();
-        } catch(\Exception $e) {
-            error_log('notes view_summary - '.$e->getTraceAsString());
-        }
-
         // Never show a link to view full submission.
         $showviewlink = false;
 
         list ($course, $cm) = get_course_and_cm_from_instance($submission->assignment, 'assign');
-        //$submission->userid
         $theuser = \core_user::get_user($submission->userid);
         $userdetails = user_get_user_details($theuser, $course);
 
