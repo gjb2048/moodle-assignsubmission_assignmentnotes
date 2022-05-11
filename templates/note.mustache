@@ -34,15 +34,15 @@
         <span id="note-modal-{{uniqid}}" role="button" title="{{notedetailssummary}}">
             {{note}}
         </span>
-        {{#js}}
-        require(['jquery', 'core/modal_factory'], function($, ModalFactory){
-            var trigger = $('#note-modal-{{uniqid}}');
-            ModalFactory.create({
-                type: ModalFactory.types.ALERT,
-                title: '{{note}}',
-                body: '{{{notedetails}}}',
-            }, trigger);
-        });
-        {{/js}}
     {{/note}}
 </div>
+{{#js}}
+    require(['jquery', 'core/modal_factory'], function($, ModalFactory) {
+        var trigger = $('#note-modal-{{uniqid}}');
+        ModalFactory.create({
+            type: ModalFactory.types.ALERT,
+            title: '{{note}}',
+            body: '{{{notedetails}}}',
+        }, trigger);
+    });
+{{/js}}
