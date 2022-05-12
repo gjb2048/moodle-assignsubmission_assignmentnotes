@@ -41,8 +41,9 @@
         var trigger = $('#note-modal-{{uniqid}}');
         ModalFactory.create({
             type: ModalFactory.types.ALERT,
-            title: '{{note}}',
+            title: '{{#str}} notes, assignsubmission_notes {{/str}} {{note}}',
             body: '{{{notedetails}}}',
+            large: true
         }, trigger);
     });
 {{/js}}

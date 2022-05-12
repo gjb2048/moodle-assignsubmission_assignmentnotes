@@ -24,12 +24,12 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['commentlinktext'] = 'Notes:';
 $string['default'] = 'Enabled by default';
 $string['default_help'] = 'If set, this submission method will be enabled by default for all new assignments.';
 $string['enabled'] = 'Submission notes';
 $string['enabled_help'] = 'If enabled, permitted users will be able to see the contents of the \'submission_note_details\' user profile filed if the \'submission_note\' user profile field is ticked.  If none of these user profile fields exists, then nothing will be shown for the user.';
 $string['nodetails'] = '\'submission_note_details\'(shortname) custom user profile field not populated';
 $string['nonote'] = 'None';
+$string['notes'] = 'Notes:';
 $string['pluginname'] = 'Notes';
 $string['privacy:nop'] = 'The assign submission notes plugin only displays the contents of the \'submission_note_details\' user profile field if any and enabled, it does not store any data pertaining to the user itself.';
