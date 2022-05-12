@@ -34,10 +34,6 @@
 function assignsubmission_notes_comment_validate(stdClass $options) {
     global $CFG, $DB;
 
-    if ($options->commentarea != 'submission_notes' &&
-        $options->commentarea != 'submission_notes_upgrade') {
-        throw new comment_exception('invalidcommentarea');
-    }
     if (!$submission = $DB->get_record('assign_submission', array('id' => $options->itemid))) {
         throw new comment_exception('invalidgradereviewitemid');
     }
@@ -71,10 +67,6 @@ function assignsubmission_notes_comment_validate(stdClass $options) {
 function assignsubmission_notes_comment_permissions(stdClass $options) {
     global $CFG, $DB;
 
-    if ($options->commentarea != 'submission_notes' &&
-        $options->commentarea != 'submission_notes_upgrade') {
-        throw new comment_exception('invalidcommentarea');
-    }
     if (!$submission = $DB->get_record('assign_submission', array('id' => $options->itemid))) {
         throw new comment_exception('invalidgradereviewitemid');
     }
@@ -98,61 +90,4 @@ function assignsubmission_notes_comment_permissions(stdClass $options) {
     }
 
     return array('post' => false, 'view' => true);
-}
-
-/**
- * Callback called by gradereview::get_gradereviews() and gradereview::add().  Gives an opportunity to enforce blind-marking.
- *
- * @param array $gradereviews
- * @param stdClass $options
- * @return array
- * @throws comment_exception
- */
-function assignsubmission_notes_comment_display($gradereviews, $options) {
-    global $CFG, $DB;
-
-    if ($options->commentarea != 'submission_notes' &&
-        $options->commentarea != 'submission_notes_upgrade') {
-        throw new comment_exception('invalidcommentarea');
-    }
-    if (!$submission = $DB->get_record('assign_submission', array('id' => $options->itemid))) {
-        throw new comment_exception('invalidgradereviewitemid');
-    }
-    $context = $options->context;
-    $cm = $options->cm;
-    $course = $options->courseid;
-
-    require_once($CFG->dirroot . '/mod/assign/locallib.php');
-    $assignment = new assign($context, $cm, $course);
-
-    if ($assignment->get_instance()->id != $submission->assignment) {
-        throw new comment_exception('invalidcontext');
-    }
-
-    $gradereviews = array();
-    $testreview = new stdClass();
-    $testreview->id = 1;
-    $testreview->content = '<div class="no-overflow"><div class="text_to_html">Testing is go</div></div>';
-    $gradereviews[] = $testreview;
-
-    return $gradereviews;
-}
-
-/**
- * Callback to force the userid for all gradereviews to be the userid of the submission and NOT the global $USER->id. This
- * is required by the upgrade code.  Note the gradereview area is used to identify upgrades.
- *
- * @param stdClass $gradereview
- * @param stdClass $param
- */
-function assignsubmission_notes_comment_add(stdClass $gradereview, stdClass $param) {
-
-    global $DB;
-    if ($gradereview->commentarea == 'submission_notes_upgrade') {
-        $submissionid = $gradereview->itemid;
-        $submission = $DB->get_record('assign_submission', array('id' => $submissionid));
-
-        $gradereview->userid = $submission->userid;
-        $gradereview->commentarea = 'submission_notes';
-    }
 }

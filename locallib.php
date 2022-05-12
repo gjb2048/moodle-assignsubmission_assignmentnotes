@@ -26,7 +26,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->dirroot.'/comment/lib.php');
 require_once($CFG->dirroot.'/mod/assign/submissionplugin.php');
 require_once($CFG->dirroot.'/user/lib.php');
 

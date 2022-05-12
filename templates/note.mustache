@@ -43,7 +43,7 @@
             type: ModalFactory.types.ALERT,
             title: '{{#str}} notes, assignsubmission_notes {{/str}} {{note}}',
             body: '{{{notedetails}}}',
-            large: true
+            templateContext: {classes: 'submission-note-modal modal-xl'}
         }, trigger);
     });
 {{/js}}
