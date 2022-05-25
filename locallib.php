@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file contains the definition for the library class for online notes submission plugin
+ * This file contains the definition for the library class for the notes submission plugin
  *
  * @package   assignsubmission_notes
  * @copyright &copy; 2022-onwards G J Barnard.
