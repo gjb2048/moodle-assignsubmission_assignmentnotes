@@ -19,8 +19,15 @@
 
     Assign submission notes note.
 
+    Context variables required for this template:
+    * indicatenonote - Indicate that there is no note.
+    * note - Note click text.
+    * notedetails - The note.
+    * notedetailssummary - The summary of the note.
+
     Example context (json):
     {
+        "indicatenonote": true,
         "note": "SpLD",
         "notedetails": "Note details",
         "notedetailssummary": "Note details summary"
@@ -28,7 +35,7 @@
 }}
 <div class="assignsubmissionnote">
     {{^note}}
-        <span class="assignsubmission_nonote">{{#str}} nonote, assignsubmission_notes {{/str}}</span>
+        {{#indicatenonote}}<span class="assignsubmission_nonote">{{#str}} nonote, assignsubmission_notes {{/str}}</span>{{/indicatenonote}}
     {{/note}}
     {{#note}}
         <span id="note-modal-{{uniqid}}" class="assignsubmission_hasnote" role="button" title="{{notedetailssummary}}">

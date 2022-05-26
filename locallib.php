@@ -72,6 +72,7 @@ class assign_submission_notes extends assign_submission_plugin {
                 $templatecontext = new stdClass;
                 if (empty($searcharray['submission_note']['value'])) {
                     $templatecontext->note = false;
+                    $templatecontext->indicatenonote = get_config('assignsubmission_notes', 'indicatenonote');
                 } else {
                     $templatecontext->note = $searcharray['submission_note']['name'];
                     if (!empty($searcharray['submission_note_details']['value'])) {
