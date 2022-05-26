@@ -31,5 +31,5 @@ $string['indicatenonote_help'] = 'If set, then the user will be informed that th
 $string['nodetails'] = '\'submission_note_details\'(shortname) custom user profile field not populated';
 $string['nonote'] = 'None';
 $string['notes'] = 'Notes:';
-$string['pluginname'] = 'Notes';
+$string['pluginname'] = 'Assignment notes';
 $string['privacy:nop'] = 'The assign submission notes plugin only displays the contents of the \'submission_note_details\' user profile field if any and enabled, it does not store any data pertaining to the user itself.';
