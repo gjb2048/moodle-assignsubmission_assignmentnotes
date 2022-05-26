@@ -23,6 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$settings->add(new admin_setting_configcheckbox('assignsubmission_notes/indicatenonote',
+defined('MOODLE_INTERNAL') || die;
+
+if ($ADMIN->fulltree) {
+    $settings->add(new admin_setting_configcheckbox('assignsubmission_notes/indicatenonote',
     new lang_string('indicatenonote', 'assignsubmission_notes'),
     new lang_string('indicatenonote_help', 'assignsubmission_notes'), '1'));
+}
