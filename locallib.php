@@ -39,7 +39,7 @@ require_once($CFG->dirroot.'/user/lib.php');
 class assign_submission_notes extends assign_submission_plugin {
 
     /**
-     * Get the name of the online gradereview submission plugin
+     * Get the name of the assignment notes submission plugin
      * @return string
      */
     public function get_name() {
@@ -47,11 +47,10 @@ class assign_submission_notes extends assign_submission_plugin {
     }
 
     /**
-     * Display AJAX based comment in the submission status table
+     * Display the note.
      *
      * @param stdClass $submission
-     * @param bool $showviewlink - If the gradereviews are long this is
-     *                             set to true so they can be shown in a separate page
+     * @param bool $showviewlink
      * @return string
      */
     public function view_summary(stdClass $submission, &$showviewlink) {
@@ -62,6 +61,7 @@ class assign_submission_notes extends assign_submission_plugin {
         $theuser = \core_user::get_user($submission->userid);
         $userdetails = user_get_user_details($theuser, $course);
 
+        $o = '';
         if (!empty($userdetails['customfields'])) {
             $searcharray = array();
             foreach ($userdetails['customfields'] as $cfield) {
