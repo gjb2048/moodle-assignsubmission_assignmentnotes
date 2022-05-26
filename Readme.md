@@ -46,7 +46,8 @@ Installation
  3. Copy the extracted 'notes' folder to the '/mod/assign/submission/' folder.
  4. Go to 'Site administration' -> 'Notifications' and follow standard the 'plugin' update notification.
  5. Put Moodle out of Maintenance Mode.
- 6. Create the custom user profile fields 'submission_note'(Checkbox type) and 'submission_note_details'(Text area type).
+ 6. Create the custom user profile fields 'submission_note'(Checkbox type) and 'submission_note_details'(Text area type), setting
+    'Who is this field visible to?' to 'Visible to user, teachers and admins'.
  7. Populate / set the custom user profile fields on a per user basis as required.
  8. It is recommended that notes are ordered immediately above "File Submissions" in the assignment submission plugins
     (Site administration -> Plugins -> Activity modules -> Assignment -> Submission plugins -> Manage assignment submission plugins).
