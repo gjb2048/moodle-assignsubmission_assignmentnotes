@@ -69,10 +69,11 @@ class assign_submission_assignmentnotes extends assign_submission_plugin {
             }
 
             if (array_key_exists('submission_note', $searcharray)) {
+                $rendernote = true;
                 $templatecontext = new stdClass;
                 if (empty($searcharray['submission_note']['value'])) {
                     $templatecontext->note = false;
-                    $templatecontext->indicatenonote = get_config('assignsubmission_assignmentnotes', 'indicatenonote');
+                    $rendernote = get_config('assignsubmission_assignmentnotes', 'indicatenonote');
                 } else {
                     $templatecontext->note = $searcharray['submission_note']['name'];
                     if (!empty($searcharray['submission_note_details']['value'])) {
@@ -81,7 +82,9 @@ class assign_submission_assignmentnotes extends assign_submission_plugin {
                         $templatecontext->notedetailssummary = mb_strimwidth($notesummary, 0, 200, "...", 'utf-8');
                     }
                 }
-                $o = $this->assignment->get_renderer()->render_from_template('assignsubmission_assignmentnotes/note', $templatecontext);
+                if ($rendernote) {
+                    $o = $this->assignment->get_renderer()->render_from_template('assignsubmission_assignmentnotes/note', $templatecontext);
+                }
             }
         } else {
             $o = '-';
