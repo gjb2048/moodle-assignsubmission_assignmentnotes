@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Post-install code for the submission_notes module.
+ * Post-install code for the assignsubmission_assignmentnotes module.
  *
- * @package   assignsubmission_notes
+ * @package   assignsubmission_assignmentnotes
  * @copyright &copy; 2022-onwards G J Barnard.
  * @author    G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
@@ -29,15 +29,15 @@
  * Moves the notes plugin to the bottom
  * @return bool
  */
-function xmldb_assignsubmission_notes_install() {
+function xmldb_assignsubmission_assignmentnotes_install() {
     global $CFG;
 
     require_once($CFG->dirroot.'/mod/assign/adminlib.php');
     // Set the correct initial order for the plugins.
     $pluginmanager = new assign_plugin_manager('assignsubmission');
 
-    $pluginmanager->move_plugin('notes', 'down');
-    $pluginmanager->move_plugin('notes', 'down');
+    $pluginmanager->move_plugin('assignmentnotes', 'down');
+    $pluginmanager->move_plugin('assignmentnotes', 'down');
 
     return true;
 }

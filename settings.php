@@ -17,7 +17,7 @@
 /**
  * This file contains the settings for the assignment notes submission plugin.
  *
- * @package   assignsubmission_notes
+ * @package   assignsubmission_assignmentnotes
  * @copyright &copy; 2022-onwards G J Barnard.
  * @author    G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {
-    $settings->add(new admin_setting_configcheckbox('assignsubmission_notes/indicatenonote',
-    new lang_string('indicatenonote', 'assignsubmission_notes'),
-    new lang_string('indicatenonote_help', 'assignsubmission_notes'), '1'));
+    $settings->add(new admin_setting_configcheckbox('assignsubmission_assignmentnotes/indicatenonote',
+    new lang_string('indicatenonote', 'assignsubmission_assignmentnotes'),
+    new lang_string('indicatenonote_help', 'assignsubmission_assignmentnotes'), '1'));
 }

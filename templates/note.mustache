@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template assignsubmission_notes/note
+    @template assignsubmission_assignmentnotes/note
 
     Assign submission notes note.
 
@@ -33,12 +33,12 @@
         "notedetailssummary": "Note details summary"
     }
 }}
-<div class="assignsubmissionnote">
+<div class="assignsubmissionassignmentnote">
     {{^note}}
-        {{#indicatenonote}}<span class="assignsubmission_nonote">{{#str}} nonote, assignsubmission_notes {{/str}}</span>{{/indicatenonote}}
+        {{#indicatenonote}}<span class="assignsubmission_assignmentnotenonote">{{#str}} nonote, assignsubmission_notes {{/str}}</span>{{/indicatenonote}}
     {{/note}}
     {{#note}}
-        <span id="note-modal-{{uniqid}}" class="assignsubmission_hasnote" role="button" title="{{notedetailssummary}}">
+        <span id="note-modal-{{uniqid}}" class="assignsubmission_assignmentnotehasnote" role="button" title="{{notedetailssummary}}">
             {{note}}
         </span>
     {{/note}}
@@ -48,7 +48,7 @@
         var trigger = $('#note-modal-{{uniqid}}');
         ModalFactory.create({
             type: ModalFactory.types.ALERT,
-            title: '{{#str}} notes, assignsubmission_notes {{/str}} {{note}}',
+            title: '{{#str}} notes, assignsubmission_assignmentnotes {{/str}} {{note}}',
             body: '{{{notedetails}}}',
             templateContext: {classes: 'submission-note-modal modal-xl'}
         }, trigger);

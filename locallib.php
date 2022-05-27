@@ -17,7 +17,7 @@
 /**
  * This file contains the definition for the library class for the notes submission plugin
  *
- * @package   assignsubmission_notes
+ * @package   assignsubmission_assignmentnotes
  * @copyright &copy; 2022-onwards G J Barnard.
  * @author    G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
@@ -36,14 +36,14 @@ require_once($CFG->dirroot.'/user/lib.php');
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class assign_submission_notes extends assign_submission_plugin {
+class assign_submission_assignmentnotes extends assign_submission_plugin {
 
     /**
      * Get the name of the assignment notes submission plugin
      * @return string
      */
     public function get_name() {
-        return get_string('pluginname', 'assignsubmission_notes');
+        return get_string('pluginname', 'assignsubmission_assignmentnotes');
     }
 
     /**
@@ -72,7 +72,7 @@ class assign_submission_notes extends assign_submission_plugin {
                 $templatecontext = new stdClass;
                 if (empty($searcharray['submission_note']['value'])) {
                     $templatecontext->note = false;
-                    $templatecontext->indicatenonote = get_config('assignsubmission_notes', 'indicatenonote');
+                    $templatecontext->indicatenonote = get_config('assignsubmission_assignmentnotes', 'indicatenonote');
                 } else {
                     $templatecontext->note = $searcharray['submission_note']['name'];
                     if (!empty($searcharray['submission_note_details']['value'])) {
@@ -81,7 +81,7 @@ class assign_submission_notes extends assign_submission_plugin {
                         $templatecontext->notedetailssummary = mb_strimwidth($notesummary, 0, 200, "...", 'utf-8');
                     }
                 }
-                $o = $this->assignment->get_renderer()->render_from_template('assignsubmission_notes/note', $templatecontext);
+                $o = $this->assignment->get_renderer()->render_from_template('assignsubmission_assignmentnotes/note', $templatecontext);
             }
         } else {
             $o = '-';

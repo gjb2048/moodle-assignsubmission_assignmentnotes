@@ -17,7 +17,7 @@
 /**
  * Upgrade code for install.
  *
- * @package   assignsubmission_notes
+ * @package   assignsubmission_assignmentnotes
  * @copyright &copy; 2022-onwards G J Barnard.
  * @author    G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
@@ -29,7 +29,7 @@
  * @param int $oldversion
  * @return bool
  */
-function xmldb_assignsubmission_notes_upgrade($oldversion) {
+function xmldb_assignsubmission_assignmentnotes_upgrade($oldversion) {
     return true;
 }
 

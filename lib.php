@@ -17,7 +17,7 @@
 /**
  * This file contains the moodle hooks for the submission notes plugin
  *
- * @package   assignsubmission_notes
+ * @package   assignsubmission_assignmentnotes
  * @copyright &copy; 2022-onwards G J Barnard.
  * @author    G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
@@ -33,7 +33,7 @@
  * @param stdClass $options
  * @return bool
  */
-function assignsubmission_notes_comment_validate(stdClass $options) {
+function assignsubmission_assignmentnotes_comment_validate(stdClass $options) {
     global $CFG, $DB;
 
     if (!$submission = $DB->get_record('assign_submission', array('id' => $options->itemid))) {
@@ -66,7 +66,7 @@ function assignsubmission_notes_comment_validate(stdClass $options) {
  * @param stdClass $options
  * @return array
  */
-function assignsubmission_notes_comment_permissions(stdClass $options) {
+function assignsubmission_assignmentnotes_comment_permissions(stdClass $options) {
     global $CFG, $DB;
 
     if (!$submission = $DB->get_record('assign_submission', array('id' => $options->itemid))) {

@@ -17,7 +17,7 @@
 /**
  * This file contains the version information for the notes submission plugin
  *
- * @package   assignsubmission_notes
+ * @package   assignsubmission_assignmentnotes
  * @copyright &copy; 2022-onwards G J Barnard.
  * @author    G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
@@ -29,6 +29,6 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->version   = 2022050800;
 $plugin->supported = array(29, 311);
 $plugin->requires  = 2014111000;
-$plugin->component = 'assignsubmission_notes';
+$plugin->component = 'assignsubmission_assignmentnotes';
 $plugin->maturity = MATURITY_BETA;
 $plugin->release = '0.0.1 (Build: 2022050800)';

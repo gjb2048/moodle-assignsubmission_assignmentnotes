@@ -17,13 +17,13 @@
 /**
  * Assign submission notes.
  *
- * @package   assignsubmission_notes
+ * @package   assignsubmission_assignmentnotes
  * @copyright &copy; 2022-onwards G J Barnard.
  * @author    G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
-namespace assignsubmission_notes\privacy;
+namespace assignsubmission_assignmentnotes\privacy;
 
 /**
  * Notes does not store any user data.

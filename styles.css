@@ -1,7 +1,7 @@
 /**
  * This file contains the styles for the notes submission plugin
  *
- * @package   assignsubmission_notes
+ * @package   assignsubmission_assignmentnotes
  * @copyright &copy; 2022-onwards G J Barnard.
  * @author    G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -20,6 +20,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-.assignsubmissionnote .assignsubmission_hasnote {
+.assignsubmissionassignmentnote .assignsubmission_assignmentnotehasnote {
     color: red;
 }
