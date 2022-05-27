@@ -68,16 +68,16 @@ class assign_submission_assignmentnotes extends assign_submission_plugin {
                 $searcharray[$cfield['shortname']] = $cfield;
             }
 
-            if (array_key_exists('submission_note', $searcharray)) {
+            if (array_key_exists('submission_assignmentnotes', $searcharray)) {
                 $rendernote = true;
                 $templatecontext = new stdClass;
-                if (empty($searcharray['submission_note']['value'])) {
+                if (empty($searcharray['submission_assignmentnotes']['value'])) {
                     $templatecontext->note = false;
                     $rendernote = get_config('assignsubmission_assignmentnotes', 'indicatenonote');
                 } else {
-                    $templatecontext->note = $searcharray['submission_note']['name'];
-                    if (!empty($searcharray['submission_note_details']['value'])) {
-                        $templatecontext->notedetails = $searcharray['submission_note_details']['value'];
+                    $templatecontext->note = $searcharray['submission_assignmentnotes']['name'];
+                    if (!empty($searcharray['submission_assignmentnotes_details']['value'])) {
+                        $templatecontext->notedetails = $searcharray['submission_assignmentnotes_details']['value'];
                         $notesummary = format_string($templatecontext->notedetails);
                         $templatecontext->notedetailssummary = mb_strimwidth($notesummary, 0, 200, "...", 'utf-8');
                     }

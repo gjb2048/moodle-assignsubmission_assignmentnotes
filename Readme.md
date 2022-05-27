@@ -3,7 +3,8 @@ Introduction
 Assignment notes.
 
 Adds the ability to add user specific assign submission notes for markers via the custom user profile fields
-'submission_note'(Checkbox type) and 'submission_note_details'(Text area type), that must be created by the Administrator.
+'submission_assignmentnotes'(Checkbox type) and 'submission_assignmentnotes_details'(Text area type), that must be created by the
+Administrator - please see 'Installation' for more details.
 
 About
 =====
@@ -22,7 +23,7 @@ Free Software
 Assignment notes is 'free' software under the terms of the GNU GPLv3 License, please see 'LICENSE'.
 
 It can be obtained for free from:
-https://github.com/gjb2048/moodle-assignsubmission_notes/releases
+https://github.com/gjb2048/moodle-assignsubmission_assignmentnotes/releases
 
 You have all the rights granted to you by the GPLv3 license.  If you are unsure about anything, then the
 FAQ - www.gnu.org/licenses/gpl-faq.html - is a good place to look.
@@ -40,16 +41,20 @@ Please ensure that your hardware and software complies with 'Requirements' in 'I
 
 Installation
 ============
- 1. Ensure you have the version of Moodle as stated above in 'Required version of Moodle'.  This is essential as the
-    filter relies on underlying core code that is out of my control.
+ 1. Ensure you have the version of Moodle as stated above in 'Required version of Moodle'.  This is essential as the plugin relies
+    on underlying core code that is out of my control.
  2. Login as an administrator and put Moodle in 'Maintenance Mode' so that there are no users using it bar you as the administrator.
- 3. Copy the extracted 'notes' folder to the '/mod/assign/submission/' folder.
+ 3. Copy the extracted 'assignmentnotes' folder to the '/mod/assign/submission/' folder.
  4. Go to 'Site administration' -> 'Notifications' and follow standard the 'plugin' update notification.
  5. Put Moodle out of Maintenance Mode.
- 6. Create the custom user profile fields 'submission_note'(Checkbox type) and 'submission_note_details'(Text area type), setting
-    'Who is this field visible to?' to 'Visible to user, teachers and admins'.
+ 6. Create the custom user profile fields (Site administration -> Users -> Accounts -> User profile fields):
+    'submission_assignmentnotes'(Checkbox type) and 'submission_assignmentnotes_details'(Text area type), setting
+    'Who is this field visible to?' to 'Visible to user, teachers and admins'.  The former's name will be shown as the text to
+    activate the 'modal' on the assign grading page and on the student's assignment status page, when it is ticked.  The latter's
+    name can be your choice stores what is to be shown when the name of the former is clicked on - a summary (max 200 characters) is
+    shown as a tooltip on hover.
  7. Populate / set the custom user profile fields on a per user basis as required.
- 8. It is recommended that notes are ordered immediately above "File Submissions" in the assignment submission plugins
+ 8. It is recommended that assignmentnotes are ordered immediately above "File Submissions" in the assignment submission plugins
     (Site administration -> Plugins -> Activity modules -> Assignment -> Submission plugins -> Manage assignment submission plugins).
     This will place the notes next to the file where marking will be accessed.
 
@@ -58,8 +63,8 @@ Upgrading
  1. Ensure you have the version of Moodle as stated above in 'Required version of Moodle'.  This is essential as the
     filter relies on underlying core code that is out of my control.
  2. Login as an administrator and put Moodle in 'Maintenance Mode' so that there are no users using it bar you as the administrator.
- 3. Make a backup of your old 'notes' folder in '/mod/assign/submission/' and then delete the folder.
- 4. Copy the replacement extracted 'notes' folder to the '/mod/assign/submission/' folder.
+ 3. Make a backup of your old 'assignmentnotes' folder in '/mod/assign/submission/' and then delete the folder.
+ 4. Copy the replacement extracted 'assignmentnotes' folder to the '/mod/assign/submission/' folder.
  5. Go to 'Site administration' -> 'Notifications' and follow standard the 'plugin' update notification.
  6. If automatic 'Purge all caches' appears not to work by lack of display etc. then perform a manual 'Purge all caches'
     under 'Home -> Site administration -> Development -> Purge all caches'.
@@ -82,7 +87,7 @@ It is essential that you provide as much information as possible, the critical i
 version.php file.  Other version information such as specific Moodle version, theme name and version also helps.  A screen shot
 can be really useful in visualising the issue along with any files you consider to be relevant.
 
-Report issues on: https://github.com/gjb2048/moodle-assignsubmission_notes/issues
+Report issues on: https://github.com/gjb2048/moodle-assignsubmission_assignmentnotes/issues
 
 Version Information
 ===================
