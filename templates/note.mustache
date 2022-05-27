@@ -31,12 +31,12 @@
         "notedetailssummary": "Note details summary"
     }
 }}
-<div class="assignsubmissionassignmentnote">
+<div class="assignsubmissionassignmentnotes">
     {{^note}}
-        <span class="assignsubmission_assignmentnotenonote">{{#str}} nonote, assignsubmission_assignmentnotes {{/str}}</span>
+        <span class="assignsubmission_assignmentnotesnonote">{{#str}} nonote, assignsubmission_assignmentnotes {{/str}}</span>
     {{/note}}
     {{#note}}
-        <span id="note-modal-{{uniqid}}" class="assignsubmission_assignmentnotehasnote" role="button" title="{{notedetailssummary}}">
+        <span id="note-modal-{{uniqid}}" class="assignsubmission_assignmentnoteshasnote" role="button" title="{{notedetailssummary}}">
             {{note}}
         </span>
     {{/note}}

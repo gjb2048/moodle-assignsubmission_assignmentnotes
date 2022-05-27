@@ -1,5 +1,5 @@
 /**
- * This file contains the styles for the notes submission plugin
+ * This file contains the styles for the assignment notes submission plugin
  *
  * @package   assignsubmission_assignmentnotes
  * @copyright &copy; 2022-onwards G J Barnard.
@@ -20,6 +20,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-.assignsubmissionassignmentnote .assignsubmission_assignmentnotehasnote {
+.assignsubmissionassignmentnotes .assignsubmission_assignmentnoteshasnote {
     color: red;
 }
