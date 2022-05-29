@@ -34,7 +34,7 @@ The plugin is licensed under the GNU GPLv3 License and comes with NO support.
 
 Required version of Moodle
 ==========================
-This version works with Moodle 2.9 to Moodle 3.11 version 2021051700.00 (Build: 20210517) and above within the 3.11 branch.
+This version works with Moodle 2.9 to Moodle 4.0.
 
 Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' such as
 'docs.moodle.org/311/en/Installing_Moodle'.
