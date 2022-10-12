@@ -77,7 +77,8 @@ class assign_submission_assignmentnotes extends assign_submission_plugin {
                 } else {
                     $templatecontext->note = $searcharray['submission_assignmentnotes']['name'];
                     if (!empty($searcharray['submission_assignmentnotes_details']['value'])) {
-                        $templatecontext->notedetails = $searcharray['submission_assignmentnotes_details']['value'];
+                        $templatecontext->notedetails = str_replace(array("\r", "\n"), '',
+                            $searcharray['submission_assignmentnotes_details']['value']);
                         $notesummary = format_string($templatecontext->notedetails);
                         $templatecontext->notedetailssummary = mb_strimwidth($notesummary, 0, 200, "...", 'utf-8');
                     }

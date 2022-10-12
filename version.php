@@ -26,9 +26,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2022050800;
+$plugin->version   = 2022050801;
 $plugin->supported = array(29, 400);
 $plugin->requires  = 2014111000;
 $plugin->component = 'assignsubmission_assignmentnotes';
-$plugin->maturity = MATURITY_BETA;
-$plugin->release = '0.0.1 (Build: 2022050800)';
+$plugin->maturity = MATURITY_STABLE;
+$plugin->release = '0.0.2 (Build: 2022050801)';
