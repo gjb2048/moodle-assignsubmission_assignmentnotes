@@ -57,6 +57,15 @@ class assign_submission_assignmentnotes extends assign_submission_plugin {
         // Never show a link to view full submission.
         $showviewlink = false;
 
+        if (empty($submission->userid)) {
+            $templatecontext = new stdClass;
+            $templatecontext->note = get_string('group_note', 'assignsubmission_assignmentnotes');
+            $templatecontext->notedetails = get_string('group_notedetails', 'assignsubmission_assignmentnotes');
+
+            return $this->assignment->get_renderer()->render_from_template(
+                'assignsubmission_assignmentnotes/note', $templatecontext);
+        }
+
         list ($course, $cm) = get_course_and_cm_from_instance($submission->assignment, 'assign');
         $theuser = \core_user::get_user($submission->userid);
         $userdetails = user_get_user_details($theuser, $course);

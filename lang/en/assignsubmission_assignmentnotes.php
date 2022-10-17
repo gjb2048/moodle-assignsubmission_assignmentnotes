@@ -26,6 +26,8 @@
 
 $string['enabled'] = 'Submission notes';
 $string['enabled_help'] = 'If enabled, permitted users will be able to see the contents of the \'submission_note_details\' user profile filed if the \'submission_note\' user profile field is ticked.  If none of these user profile fields exists, then nothing will be shown for the user.';
+$string['group_note'] = 'Group info';
+$string['group_notedetails'] = 'Group assignment, check user profile for additional information.';
 $string['indicatenonote'] = 'Inidicate that there is no note';
 $string['indicatenonote_help'] = 'If set, then the user will be informed that there is no note as defined by the \'nonote\' language string for the plugin.';
 $string['nodetails'] = '\'submission_note_details\'(shortname) custom user profile field not populated';

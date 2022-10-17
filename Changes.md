@@ -1,6 +1,10 @@
 Version Information
 ===================
 
+Version 0.0.3 - TBR
+--------------------------
+1. Fix 'Grading page cannot be displayed when the assignment is using groups'.
+
 Version 0.0.2 - TBR
 --------------------------
 1. Fix 'string literal contains an unescaped line break' -
