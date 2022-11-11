@@ -3,6 +3,7 @@ Version Information
 
 Version 0.0.4 - TBR
 --------------------------
+1. Fix 'Use of single quotes breaks output'.
 
 Version 0.0.3 - 25/10/2022
 --------------------------
