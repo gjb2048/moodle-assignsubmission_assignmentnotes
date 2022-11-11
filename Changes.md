@@ -1,6 +1,9 @@
 Version Information
 ===================
 
+Version 0.0.4 - TBR
+--------------------------
+
 Version 0.0.3 - 25/10/2022
 --------------------------
 1. Fix 'Grading page cannot be displayed when the assignment is using groups'.
