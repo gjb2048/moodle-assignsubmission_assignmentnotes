@@ -1,7 +1,7 @@
 Version Information
 ===================
 
-Version 0.0.4 - TBR
+Version 0.0.4 - 15/11/2022
 --------------------------
 1. Fix 'Use of single quotes breaks output'.
 
